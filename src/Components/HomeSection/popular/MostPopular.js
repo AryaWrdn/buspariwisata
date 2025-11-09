@@ -8,7 +8,7 @@ const MostPopular = () => {
       <section className='popular top'>
         <div className='full_container'>
           <div className='heading'>
-            <h1>Fasilitas Hotel</h1>
+            <h1>Fasilitas Bus</h1>
             <div className='line'></div>
           </div>
 

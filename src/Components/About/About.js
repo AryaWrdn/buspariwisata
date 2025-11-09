@@ -20,8 +20,8 @@ const About = () => {
             <h1>
               Our <span>Team</span>
             </h1>
-            <p>Hotel Lake Toba adalah hotel yang didirikan oleh 3 sekawan pada tahun 2009. 3 sekawan tersebut memiliki julukan sebagai THE CREW karena mereka memiliki peran masing masing yang tak kalah penting.</p>
-            <p>Tujuan didirikan nya Hotel Lake Toba adalah ingin memberikan rasa nyaman dan damai ketika menginap di Hotel Lake Toba dengan pemandangan langsung ke Danau Toba.</p>
+            <p>Bokbus Pariwisata adalah perusahaan bus yang didirikan oleh 3 sekawan pada tahun 2025. 3 sekawan tersebut memiliki julukan sebagai THE CREW karena mereka memiliki peran masing masing yang tak kalah penting.</p>
+            <p>Tujuan didirikan nya Bokbus Pariwisata adalah ingin memberikan rasa nyaman, aman, dan berkesan selama dalam perjalanan, mengantarkan pelanggan ke berbagai destinasi wisata dengan selamat.</p>
           </div>
           <div className='row image'>
             <img src='/images/feature-img-1.jpg' alt='' />

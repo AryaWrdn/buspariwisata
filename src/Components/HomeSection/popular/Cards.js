@@ -56,9 +56,9 @@ const Cards = () => {
               <div className='item'>
                 <div className='image'>
                   <img src={value.image} alt='' />
-                  <i className='fas fa-map-marker-alt'>
+                  {/* <i className='fas fa-map-marker-alt'>
                     <label>{value.lantai}</label>
-                  </i>
+                  </i> */}
                 </div>
                 <div className='rate'>
                   <i className='fa fa-star'></i>

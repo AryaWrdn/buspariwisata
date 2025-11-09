@@ -1,11 +1,20 @@
 .slider {
   overflow: hidden;
   position: relative;
+  height: 70vh;
+}
+
+.slide-wrapper {
+  display: flex;
+  height: 100%;
+  transition: transform 1s ease-in-out;
 }
 
 .slider img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .control-btn .next {
@@ -16,7 +25,7 @@
 }
 
 .control-btn i {
-  background-color: red;
+  background-color: rgba(166, 227, 196, 0.242);
 }
 
 .control-btn .prev {
@@ -27,19 +36,21 @@
 }
 
 .slide {
-  opacity: 0;
-  transition-duration: 1s ease;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .slide.active {
   opacity: 1;
   transition-duration: 1s;
-  transform: scale(1.08);
 }
+
 /*--------form-----------*/
 .slide-form h2 {
   margin-top: 30px;
 }
+
 .slide-form {
   position: absolute;
   top: 30%;
@@ -51,9 +62,11 @@
   border-radius: 5px;
   color: #000000;
 }
+
 .slide-form input {
   margin-top: 20px;
 }
+
 .slide-form .flex_space input:nth-child(odd) {
   margin-right: 20px;
 }
@@ -62,14 +75,17 @@
   background: #536fde;
   color: white;
 }
+
 /*--------form-----------*/
 @media screen and (max-width: 768px) {
   .slider {
     height: 65vh;
   }
+
   .slide img {
     height: 65vh;
   }
+
   .slide-form {
     left: 5%;
     top: 32%;
@@ -77,16 +93,19 @@
     height: 55vh;
   }
 }
+
 .slide-form {
   margin-left: 950px;
   width: 600px;
   border-radius: 30px;
 }
+
 .container h1 {
   margin-top: 40px;
   color: #fff;
   font-size: 50px;
 }
+
 .container span {
   color: #fff;
   font-size: 30px;

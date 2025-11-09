@@ -9,11 +9,7 @@ const Footer = () => {
         <div className='container grid'>
           <div className='box'>
             <div className="ab">
-              <h2>ABOUT US</h2>
-              <p>Hotel Danau Toba International Medan memiliki 311 kamar berdesain modern dan trendi yang dipisahkan oleh Hotel Condominium dengan interior kontemporer.</p>
-              <br />
-              <p> Tempat yang ideal untuk tinggal untuk pertemuan atau konferensi, rekreasi dan relaksasi dengan mitra bisnis Anda atau keluarga Anda.</p>
-            </div>
+              <h2>ABOUT US</h2> <p>Kami menyediakan armada bus pariwisata modern yang dilengkapi dengan fasilitas premium untuk menjamin kenyamanan dan keamanan Anda di setiap kilometer.</p> <br /> <p>Kami adalah pilihan ideal untuk liburan keluarga, <i>study tour</i>, kunjungan dinas, atau acara rombongan lainnya. Nikmati perjalanan yang tak terlupakan bersama kru kami yang profesional dan berpengalaman.</p></div>
           </div>
 
           <div className='box'>
@@ -41,7 +37,7 @@ const Footer = () => {
 
           <div className='box'>
             <div className='news'>
-            <h2>NEWSLETTER</h2>
+              <h2>NEWSLETTER</h2>
               <p>Dapatkan berita terbaru dari kami</p>
               <input type='text' name='' id='' />
               <input type='text' className='primary-btn' value='SUBSCRIBE' />

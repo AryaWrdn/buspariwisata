@@ -1,5 +1,5 @@
 .image-heading {
-  background-image: url("../../../public/Images/image-heading.jpg");
+  background-image: url("../../../public/Images/gambarbus.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -9,12 +9,14 @@
   position: relative;
   z-index: -2;
 }
+
 .image-heading .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
 }
+
 .image-heading::after {
   content: "";
   position: absolute;
@@ -25,10 +27,12 @@
   width: 100%;
   z-index: -1;
 }
+
 .image-heading h1 {
   font-size: 40px;
   text-transform: capitalize;
 }
+
 .image-heading button {
   background: rgba(0, 0, 0, 0.534);
   color: white;
@@ -37,10 +41,12 @@
   word-spacing: 5px;
   border-radius: 20px;
 }
+
 .image-heading a {
   color: #31b675;
   cursor: pointer;
 }
+
 .image-heading span {
   text-transform: capitalize;
   word-spacing: 30px;

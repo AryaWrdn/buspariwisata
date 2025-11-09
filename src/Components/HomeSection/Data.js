@@ -1,12 +1,12 @@
 const Data = [
   {
-    image: "images/Danau-toba.jpg",
+    image: "images/buss.png",
   },
   {
-    image: "images/slider-2.jpg",
+    image: "images/gambarbus1.jpeg",
   },
   {
-    image: "images/slider-3.jpg",
+    image: "images/bus.jpg",
   },
 ]
 export default Data

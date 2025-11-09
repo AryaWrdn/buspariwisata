@@ -1,21 +1,21 @@
 const Wdata = [
   {
     id: 1,
-    cover: "/images/works/work-1.png",
-    title: "Booking Kamar",
-    desc: "Anda bisa menelepon langsung ke hotel dan melakukan pemesanan atau reservasi melalui online travel agent (OTA). Jika memang booking secara langsung ke hotel, pembayarannya dapat dilakukan ketika Anda sudah berada di hotel tersebut.",
+    cover: "/images/works/work-1.jpg",
+    title: "Hubungi & Rencanakan",
+    desc: "Hubungi kami melalui WhatsApp atau telepon. Tentukan tanggal, tujuan, dan tipe bus yang Anda butuhkan. Tim kami akan segera memeriksa ketersediaan dan memberikan penawaran harga terbaik untuk Anda.",
   },
   {
     id: 1,
-    cover: "/images/works/work-2.png",
-    title: "Lakukan Check-in",
-    desc: "Untuk check in hotel, Anda tinggal sebutkan saja  tentang identitas Anda jika Anda sudah melakukan pemesanan via telepon kepada pihak hotel. Jika kemudian Anda memesan lewat OTA, Anda dapat menunjukkan bukti booking yang biasanya akan dikirim oleh pihak OTA ke alamat email Anda.",
+    cover: "/images/works/work-2.jpg",
+    title: "Konfirmasi & Pembayaran",
+    desc: "Setelah setuju dengan penawaran, lakukan pembayaran uang muka (DP) untuk mengunci tanggal pesanan Anda. Kami akan mengirimkan invoice resmi sebagai bukti konfirmasi pemesanan Anda melalui email atau WhatsApp.",
   },
   {
     id: 1,
-    cover: "/images/works/work-3.png",
-    title: "Lakukan Check-out",
-    desc: "Kebijakan waktu check out di hotel antara pukul 12.00 – pukul 13.00. Kemudian waktu check in untuk tamu berikutnya adalah di pukul 13.00 – 14.00. Jika Anda terlambat melakukan check out maka pihak hotel berpotensi akan memberikan charge tambahan kepada Anda.",
+    cover: "/images/works/work-3.jpg",
+    title: "Hari Keberangkatan",
+    desc: "Bus dan kru profesional kami akan tiba di lokasi penjemputan sesuai jadwal. Anda tinggal duduk santai dan nikmati perjalanan yang aman, nyaman, dan menyenangkan bersama kami.",
   },
 ]
 export default Wdata

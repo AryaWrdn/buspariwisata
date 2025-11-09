@@ -21,6 +21,7 @@ nav ul li a {
   transition: all 0.2s ease-out;
   opacity: 0.8;
 }
+
 nav ul li a:hover {
   color: rgb(0, 247, 255);
 }
@@ -32,9 +33,11 @@ nav ul li a:hover {
 .menu-icon {
   display: none;
 }
+
 nav i {
   color: #fff;
 }
+
 .login-area {
   color: white;
 }
@@ -45,11 +48,13 @@ nav i {
   font-size: 13px;
   color: #fff;
 }
+
 .login-area i {
   margin: 0 5px 0 15px;
   font-size: 13px;
   color: #fff;
 }
+
 .login-area button {
   margin-left: 20px;
   background-color: red;
@@ -60,9 +65,11 @@ nav i {
     position: absolute;
     right: 20px;
   }
+
   .navbar {
     text-align: center;
   }
+
   nav ul {
     display: block;
     width: 100%;
@@ -73,9 +80,11 @@ nav i {
     opacity: 1;
     transition: all 0.5s ease;
   }
+
   nav ul li {
     display: block;
   }
+
   nav ul.active {
     background: #31b675;
     left: 0;
@@ -83,10 +92,12 @@ nav i {
     transition: all 0.5s ease;
     z-index: 100;
   }
+
   nav ul li a {
     font-weight: 400;
     opacity: 1;
   }
+
   .menu-icon {
     display: block;
     position: absolute;
@@ -100,53 +111,76 @@ nav i {
     font-size: 2rem;
   }
 }
+
 /*--------header------------*/
 header {
-  padding: 40px 0 20px 0;
+  padding: 20px 0 10px 0;
   background-color: #fff;
 }
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  /* Ini untuk memisahkan logo dan kontak */
+  align-items: center;
+  /* INI SOLUSINYA: Untuk menyejajarkan vertikal */
+}
+
 header .box {
   margin: 0 0 0 30px;
 }
+
 header a {
   font-size: 13px;
   color: grey;
 }
+
 header i {
   font-size: 40px;
-  color: #e00000;
+  color: #00d5e0;
   margin-right: 15px;
 }
+
 header .text {
   margin-top: 10px;
 }
+
 header h4 {
   line-height: 10px;
 }
 
 /*--------header------------*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 568px) {
+
   /*--------header--------*/
   header .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
   header .contact {
     justify-content: center;
     align-items: center;
   }
+
   header a {
     font-size: 13px;
   }
+
   header i {
     font-size: 30px;
     margin-right: 5px;
     margin-top: 10px;
   }
+
   /*--------header--------*/
 }
+
 .logo img {
-  width: 150px;
+  width: 100px;
 }
-.logo { background-origin: red;}
+
+.logo {
+  background-origin: red;
+}

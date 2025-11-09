@@ -1,27 +1,27 @@
 const GalleryData = [
   {
-    img: "images/gallery-1.jpg",
-    title: "Ruang Rapat",
+    img: "images/gallery-1.webp",
+    title: "Big Bus",
   },
   {
     img: "images/gallery-2.jpg",
-    title: "Bar",
+    title: "Medium Bus",
   },
   {
-    img: "images/gallery-3.jpg",
-    title: "Lobby",
+    img: "images/gambarbus2.jpeg",
+    title: "Fasilitas Interior",
   },
   {
     img: "images/gallery-4.jpg",
-    title: "Outhor",
+    title: "Study Tour",
   },
   {
     img: "images/gallery-5.jpg",
-    title: "Sunset",
+    title: "Wisata Keluarga",
   },
   {
-    img: "images/gallery-6.jpg",
-    title: "Restourant",
+    img: "images/gallery-6.webp",
+    title: "Kunjungan Dinas/kantor",
   },
 ]
 

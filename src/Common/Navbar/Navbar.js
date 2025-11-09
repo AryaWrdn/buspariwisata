@@ -28,7 +28,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to='/testimonial' onClick={closeMobileMenu}>
-              <b>Testimonial</b>
+                <b>Testimonial</b>
               </Link>
             </li>
             <li>
@@ -38,7 +38,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to='/contact' onClick={closeMobileMenu}>
-              <b>Contact Us</b>
+                <b>Contact Us</b>
               </Link>
             </li>
           </ul>
@@ -64,9 +64,9 @@ const Navbar = () => {
       </nav>
 
       <header>
-        <div className='container flex_space'>
+        <div className='container flex_space '>
           <div className='logo'>
-            <img src='images/bulat.png' alt='' />
+            <img src='images/logobus.png' alt='' />
           </div>
 
           <div className='contact flex_space '>

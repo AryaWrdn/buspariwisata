@@ -1,52 +1,30 @@
 const PopularData = [
   {
     id: 1,
-    image: "images/popular1.jpg",
-    lantai: "Semua Kamar",
-    name: "Air Hangat",
+    image: "images/tempatduduk.webp",
+    name: "Kursi Premium",
   },
   {
     id: 2,
-    image: "images/popular2.jpg",
-    lantai: "Lantai 8",
-    name: "Kolam Berenang",
+    image: "images/jndla.jpg",
+    name: "Jendela Luas",
   },
   {
     id: 3,
-    image: "images/popular3.jpg",
-    lantai: "Lantai 5",
-    name: "GYM",
+    image: "images/sistemhiburan.jpeg",
+    name: "Tersedia TV",
   },
   {
     id: 4,
-    image: "images/popular4.jpg",
-    lantai: "Lantai 1 & 5",
-    name: "Restourant",
+    image: "images/bagasi.jpg",
+    name: "Bagasi Luas",
   },
   {
     id: 5,
-    image: "images/popular5.jpg",
-    lantai: "Lantai 6",
-    name: "SPA",
+    image: "images/ventilasi.jpg",
+    name: "AC Ventilasi Segar",
   },
-  {
-    id: 6,
-    image: "images/popular2.jpg",
-    lantai: "Lantai 8",
-    name: "Kolam berenang",
-  },
-  {
-    id: 7,
-    image: "images/popular3.jpg",
-    lantai: "Lantai 5",
-    name: "GYM",
-  },
-  {
-    id: 8,
-    image: "images/popular4.jpg",
-    lantai: "Lantai 1 & 5",
-    name: "Restourant",
-  },
+
 ]
 
 export default PopularData
