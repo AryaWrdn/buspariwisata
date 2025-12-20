@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          env:
+            # Password root database (kita buat simpel 'root' aja buat tugas)
+            - name: MYSQL_ROOT_PASSWORD
+              value: "root"
+            # Nama database otomatis dibuat
+            - name: MYSQL_DATABASE
+              value: "buspariwisata"
+          ports:
+            - containerPort: 3306
