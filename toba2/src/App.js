@@ -12,6 +12,7 @@ import Contact from "./Components/Contact/Contact";
 import Footer from "./Common/footer/Footer";
 import Login from "./Components/login/Login";
 import Register from "./Components/login/Register";
+import OrderTiket from "./Components/pesantiket/pesan";
 /*-------------blog------------ */
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/sign-in" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/ordertiket" element={<OrderTiket />} />
         </Routes>
         <Footer />
       </Router>

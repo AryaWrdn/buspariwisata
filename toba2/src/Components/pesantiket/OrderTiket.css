@@ -1,0 +1,113 @@
+/* Container Utama */
+.order-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.order-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* Bagian Kiri (Info Kontak) */
+.order-left {
+    flex: 1;
+}
+
+.order-left img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.order-left h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Bagian Kanan (Formulir) */
+.order-right {
+    flex: 2;
+}
+
+.order-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Membagi menjadi 2 kolom */
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Membuat input Catatan & Tombol memakan 2 kolom penuh */
+.full-width {
+    grid-column: span 2;
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    padding: 12px;
+    border: 2px solid #000;
+    /* Border hitam tegas sesuai gambar */
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+}
+
+.btn-submit {
+    background-color: #ff0000;
+    /* Warna merah sesuai tombol Request a Quote */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 10px;
+    width: 200px;
+    /* Lebar tombol sesuai gambar */
+}
+
+.btn-submit:hover {
+    background-color: #cc0000;
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 768px) {
+    .order-wrapper {
+        flex-direction: column;
+    }
+
+    .order-form {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+}

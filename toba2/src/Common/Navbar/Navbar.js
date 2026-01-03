@@ -41,6 +41,11 @@ const Navbar = () => {
                 <b>Contact Us</b>
               </Link>
             </li>
+            <li>
+              <Link to='/ordertiket' onClick={closeMobileMenu}>
+                <b>Order Tickets</b>
+              </Link>
+            </li>
           </ul>
 
           <div className='login-area flex'>
