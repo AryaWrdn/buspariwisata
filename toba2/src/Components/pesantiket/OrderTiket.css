@@ -1,50 +1,43 @@
-/* Container Utama */
 .order-section {
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 40px auto;
     padding: 0 20px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .order-wrapper {
     display: flex;
-    gap: 50px;
+    gap: 60px;
+    /* Jarak antara kolom info dan form */
     align-items: flex-start;
 }
 
-/* Bagian Kiri (Info Kontak) */
+/* Kolom Kiri: Info */
 .order-left {
     flex: 1;
 }
 
-.order-left img {
-    width: 150px;
-    margin-bottom: 20px;
-}
-
 .order-left h2 {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
 .contact-info p {
-    margin: 8px 0;
+    margin: 10px 0;
+    font-size: 1rem;
     color: #333;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
-/* Bagian Kanan (Formulir) */
+/* Kolom Kanan: Formulir */
 .order-right {
     flex: 2;
 }
 
 .order-form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* Membagi menjadi 2 kolom */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 Kolom sejajar */
     gap: 20px;
 }
 
@@ -53,61 +46,45 @@
     flex-direction: column;
 }
 
-/* Membuat input Catatan & Tombol memakan 2 kolom penuh */
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    /* Border tipis seperti gambar pertama */
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #ff0000;
+}
+
+/* Biar Catatan dan Tombol memakan 2 kolom penuh */
 .full-width {
     grid-column: span 2;
 }
 
-label {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-input,
-textarea {
-    padding: 12px;
-    border: 2px solid #000;
-    /* Border hitam tegas sesuai gambar */
-    border-radius: 8px;
-    outline: none;
-    font-size: 16px;
-}
-
-textarea {
-    resize: none;
-}
-
 .btn-submit {
     background-color: #ff0000;
-    /* Warna merah sesuai tombol Request a Quote */
     color: white;
-    padding: 15px;
+    padding: 15px 40px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
-    margin-top: 10px;
-    width: 200px;
-    /* Lebar tombol sesuai gambar */
+    width: fit-content;
 }
 
 .btn-submit:hover {
     background-color: #cc0000;
-}
-
-/* Responsive untuk layar kecil */
-@media (max-width: 768px) {
-    .order-wrapper {
-        flex-direction: column;
-    }
-
-    .order-form {
-        grid-template-columns: 1fr;
-    }
-
-    .full-width {
-        grid-column: span 1;
-    }
 }

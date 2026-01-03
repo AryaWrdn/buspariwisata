@@ -1,12 +1,27 @@
 import React, { useState } from "react"
 import "./Navbar.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Navbar = () => {
   const [click, setClick] = useState(false)
+  const navigate = useNavigate();
+
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
+
+  const handleOrderClick = (e) => {
+    e.preventDefault(); // Mencegah navigasi langsung dari Link
+    closeMobileMenu();
+
+    if (isLoggedIn) {
+      navigate('/ordertiket');
+    } else {
+      alert("Anda harus login terlebih dahulu!");
+      navigate('/sign-in'); // Arahkan ke login
+    }
+  }
   return (
     <>
       <nav className='navbar'>
@@ -42,7 +57,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to='/ordertiket' onClick={closeMobileMenu}>
+              <Link to='/ordertiket' onClick={handleOrderClick}>
                 <b>Order Tickets</b>
               </Link>
             </li>

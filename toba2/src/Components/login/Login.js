@@ -1,23 +1,50 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom" // Tambahkan useNavigate
+import axios from "axios" // Import Axios
 import HeadTitle from "../../Common/HeadTitle/HeadTitle"
 import "./design.css"
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate() // Untuk pindah halaman otomatis
 
-  const [recValue, setRecValue] = useState([])
-  const submitForm = (e) => {
+  // Fungsi Submit yang baru
+  const submitForm = async (e) => {
     e.preventDefault()
-    const newValue = { email: email, password: password }
 
-    setRecValue([...recValue, newValue])
-    console.log(newValue)
+    try {
+      // 1. Kirim data ke API Laravel
+      const response = await axios.post("http://127.0.0.1:8000/api/login", {
+        email: email,
+        password: password,
+      })
 
+      // 2. Jika login berhasil (Status 200)
+      if (response.status === 200) {
+        // Simpan status login di browser agar Navbar bisa berubah
+        localStorage.setItem("isLoggedIn", "true")
+        localStorage.setItem("userData", JSON.stringify(response.data.user))
+
+        alert("Login Berhasil!")
+
+        // 3. Arahkan ke halaman utama (Home)
+        navigate("/")
+
+        // Refresh halaman sebentar agar Navbar mendeteksi perubahan localStorage
+        window.location.reload()
+      }
+    } catch (error) {
+      // 4. Jika error (email/password salah atau server mati)
+      console.error(error)
+      alert(error.response?.data?.message || "Login Gagal! Periksa koneksi backend.")
+    }
+
+    // Reset input (opsional, biasanya tidak perlu jika langsung redirect)
     setEmail("")
     setPassword("")
   }
+
   return (
     <>
       <HeadTitle />
@@ -26,8 +53,8 @@ const Login = () => {
           <div className='sign-box'>
             <p>Enter your e-mail and password below to log in to your account and use the benefits of our website.</p>
             <form action='' onSubmit={submitForm}>
-              <input type='text' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' />
-              <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
+              <input type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' required />
+              <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required />
 
               <div className='flex_space'>
                 <div className='flex'>
@@ -50,23 +77,8 @@ const Login = () => {
         </div>
       </section>
 
-      <section className='show-data'>
-        {recValue.map((cureentValue) => {
-          return (
-            <>
-              <div className='sign-box'>
-                <h1>Sign-In Successfully</h1>
-                <h3>
-                  Email : <p>{cureentValue.email}</p>
-                </h3>
-                <h3>
-                  Password : <p>{cureentValue.password}</p>
-                </h3>
-              </div>
-            </>
-          )
-        })}
-      </section>
+      {/* Bagian 'show-data' dihapus karena di aplikasi asli 
+          data tidak boleh ditampilkan di bawah form login demi keamanan */}
     </>
   )
 }

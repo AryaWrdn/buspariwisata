@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom" // Untuk pindah halaman setelah daftar
+import axios from "axios" // Import Axios
 import HeadTitle from "../../Common/HeadTitle/HeadTitle"
 import "./design.css"
 
@@ -7,20 +9,43 @@ const Register = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [cpassword, setCpassword] = useState("")
+  const navigate = useNavigate()
 
-  const [recValue, setRecValue] = useState([])
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault()
-    const newValue = { name: name, email: email, password: password, cpassword: cpassword }
 
-    setRecValue([...recValue, newValue])
-    console.log(newValue)
+    // Validasi sederhana: pastikan password cocok sebelum kirim ke API
+    if (password !== cpassword) {
+      alert("Password dan Konfirmasi Password tidak cocok!")
+      return
+    }
 
+    try {
+      // Kirim data ke API Laravel (Route: /api/register)
+      const response = await axios.post("http://127.0.0.1:8000/api/register", {
+        name: name,
+        email: email,
+        password: password,
+        password_confirmation: cpassword, // Field khusus Laravel untuk validasi 'confirmed'
+      })
+
+      if (response.status === 201) {
+        alert("Akun berhasil dibuat! Silakan login.")
+        navigate("/sign-in") // Arahkan user ke halaman login
+      }
+    } catch (error) {
+      console.error(error)
+      // Menampilkan pesan error dari Laravel (misal: email sudah terdaftar)
+      alert(error.response?.data?.message || "Pendaftaran gagal!")
+    }
+
+    // Reset Form
     setName("")
     setEmail("")
     setPassword("")
     setCpassword("")
   }
+
   return (
     <>
       <HeadTitle />
@@ -42,29 +67,7 @@ const Register = () => {
         </div>
       </section>
 
-      <section className='show-data'>
-        {recValue.map((cureentValue) => {
-          return (
-            <>
-              <div className='sign-box'>
-                <h1>Create an Account Successfully</h1>
-                <h3>
-                  Name : <p>{cureentValue.name}</p>
-                </h3>
-                <h3>
-                  Email : <p>{cureentValue.email}</p>
-                </h3>
-                <h3>
-                  Password : <p>{cureentValue.password}</p>
-                </h3>
-                <h3>
-                  Confirm Password : <p>{cureentValue.cpassword}</p>
-                </h3>
-              </div>
-            </>
-          )
-        })}
-      </section>
+      {/* Bagian 'show-data' dihapus karena data user sensitif tidak boleh tampil di UI */}
     </>
   )
 }
