@@ -184,3 +184,23 @@ header h4 {
 .logo {
   background-origin: red;
 }
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #00d5e0;
+  /* Warna hijau tema bus */
+}
+
+.user-icon-main {
+  font-size: 45px !important;
+  color: #00d5e0 !important;
+  display: inline-block !important;
+}
+
+.login-area li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
