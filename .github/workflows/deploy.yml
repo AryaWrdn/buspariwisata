@@ -2,7 +2,7 @@ name: CI/CD Bus Pariwisata
 
 on:
   push:
-    branches: ["main"] # Robot jalan otomatis pas Abang push ke branch 'main'
+    branches: ["main"] # Robot jalan otomatis pas push ke branch 'main'
 
 jobs:
   build-and-push:
@@ -23,7 +23,7 @@ jobs:
       - name: Build & Push Backend
         uses: docker/build-push-action@v4
         with:
-          context: ./backend # <-- Pastikan ini sesuai nama folder backend abang
+          context: ./backend
           push: true
           tags: aryawrdn/backend-app:latest
 
@@ -31,6 +31,6 @@ jobs:
       - name: Build & Push Frontend
         uses: docker/build-push-action@v4
         with:
-          context: ./toba2 # <-- Pastikan ini sesuai nama folder frontend abang
+          context: ./toba2
           push: true
           tags: aryawrdn/frontend-app:latest
