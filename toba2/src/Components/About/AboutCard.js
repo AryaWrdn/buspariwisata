@@ -22,7 +22,7 @@ const AboutCard = () => {
           </button>
         </div>
         <div className='rowimage'>
-          <img src='/images/MicrosoftTeams-image.png' alt='' />
+          <img src='images/MicrosoftTeams-image.png' alt='' />
         </div>
       </div>
     </>

@@ -24,7 +24,7 @@ const About = () => {
             <p>Tujuan didirikan nya Bokbus Pariwisata adalah ingin memberikan rasa nyaman, aman, dan berkesan selama dalam perjalanan, mengantarkan pelanggan ke berbagai destinasi wisata dengan selamat.</p>
           </div>
           <div className='row image'>
-            <img src='/images/feature-img-1.jpg' alt='' />
+            <img src='images/feature-img-1.jpg' alt='' />
             <div className='control-btn'>
               <button className='prev'>
                 <i className='fas fa-play'></i>

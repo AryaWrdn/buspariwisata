@@ -53,7 +53,7 @@ const Home = ({ slides }) => {
           {Data.map((slide, index) => {
             return (
               <div className="slide" key={index}>
-                <img src={slide.image} alt='Home Image' />
+                <img src={slide.image} alt='HomeImage' />
               </div>
             )
           })}

@@ -32,9 +32,17 @@ spec:
               value: "user123"
             - name: MYSQL_DATABASE
               value: "bus_pariwisata"
-            # HAPUS CACHE_STORE DARI SINI (Salah tempat tadi)
           ports:
             - containerPort: 3306
+          # Database biasanya TIDAK di-autoscale sembarangan (Stateful)
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
 ---
 # --- 2. BACKEND (Laravel) ---
 apiVersion: apps/v1
@@ -42,7 +50,7 @@ kind: Deployment
 metadata:
   name: backend-deploy
 spec:
-  replicas: 2
+  # replicas: 2  <-- KITA HAPUS BIAR HPA YANG ATUR
   selector:
     matchLabels:
       app: backend-app
@@ -54,7 +62,7 @@ spec:
       containers:
         - name: backend-container
           image: aryawrdn/backend-app:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: DB_CONNECTION
               value: "mysql"
@@ -68,14 +76,53 @@ spec:
               value: "root"
             - name: DB_PASSWORD
               value: "user123"
-            # --- TAMBAHAN DI SINI (YANG BENAR) ---
             - name: CACHE_STORE
               value: "file"
             - name: SESSION_DRIVER
               value: "file"
           ports:
             - containerPort: 8000
+          # --- WAJIB ADA UTK HPA ---
+          resources:
+            requests:
+              cpu: "100m" # Minimal butuh segini
+            limits:
+              cpu: "500m" # Maksimal boleh pake segini
+
 ---
+# --- 3. FRONTEND (React) ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+spec:
+  # replicas: 2 <-- DIHAPUS JUGA
+  selector:
+    matchLabels:
+      app: frontend-app
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "80"
+    spec:
+      containers:
+        - name: frontend-container
+          image: aryawrdn/frontend-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          # --- WAJIB ADA UTK HPA ---
+          resources:
+            requests:
+              cpu: "50m"
+            limits:
+              cpu: "200m"
+
+---
+# --- 4. SERVICES ---
 apiVersion: v1
 kind: Service
 metadata:
@@ -88,34 +135,6 @@ spec:
   selector:
     app: backend-app
 ---
-# --- 3. FRONTEND (React) ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: frontend-deploy
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: frontend-app
-  template:
-    metadata:
-      labels:
-        app: frontend-app
-    spec:
-      containers:
-        - name: frontend-container
-          # PERBAIKAN: Jangan pake backend-app, tapi frontend-app
-          image: aryawrdn/frontend-app:latest
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 80
-          resources:
-            requests:
-              cpu: "100m"
-            limits:
-              cpu: "300m"
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -127,3 +146,34 @@ spec:
       targetPort: 80
   selector:
     app: frontend-app
+
+---
+# --- 5. HPA (ROBOT SCALING) ---
+# Robot Backend: Jaga CPU di 50%, Min 1 Pod, Max 5 Pod
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backend-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: backend-deploy
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
+
+---
+# Robot Frontend: Jaga CPU di 50%, Min 1 Pod, Max 5 Pod
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: frontend-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: frontend-deploy
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
